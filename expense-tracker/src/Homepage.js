@@ -24,14 +24,12 @@ function Homepage() {
       <div className='finance'>
         <div className='income'>
             <div className='innerIncome'>
-                <button type='submit'>+</button>
-                <p>Create new income</p>
+                <button type='submit'>+ Create new income</button>
             </div>
         </div>
         <div className='expense'>
             <div className='innerExpense'>
-                <button type='submit'>+</button>
-                <p>Create new expense</p>
+                <button type='submit'>+ Create new expense</button>
             </div>
         </div>
       </div>
