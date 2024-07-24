@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -18,8 +18,10 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const storedUser = JSON.parse(localStorage.getItem(formData.email));
-    if (storedUser && storedUser.password === formData.password) {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser && storedUser.email === formData.email && storedUser.password === formData.password) {
+      localStorage.setItem('loggedInUser', JSON.stringify(storedUser));
+      alert('Login successful');
       navigate('/homepage');
     } else {
       alert('Invalid email or password');

@@ -43,9 +43,15 @@ const enticingcat = {
             return;
         }
 
-        localStorage.setItem(formData.email, JSON.stringify(formData));
-        navigate('/login');
-      };
+        const user = {
+            name: formData.name,
+            email: formData.email,
+            password: formData.password
+          };
+          localStorage.setItem('user', JSON.stringify(user));
+          alert('Registration successful');
+          navigate('/login');
+        };
     
       // The return statement defines what the component renders
       return (
