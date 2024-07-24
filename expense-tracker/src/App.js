@@ -1,12 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Signup from "./Signup";
-import './App.css';
+import Login from "./Login";
+import Homepage from './Homepage';
 
-export default function MyApp() {
+
+function MyApp() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <Signup />
+      <Routes>
+        <Route path="/Signup" element={<Signup />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Homepage' element={<Homepage />} />
+        <Route path='/' element={<Signup />} /> 
+      </Routes>
     </Router>
   )
 }
+
+export default MyApp;

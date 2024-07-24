@@ -1,5 +1,6 @@
 // importing necesssary dependencies from React
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './signup.css';
 
 // Defining an object 'enticingcat' that holds the image URL and sie
@@ -15,8 +16,11 @@ const enticingcat = {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
     });
+
+    const navigate = useNavigate();
 
     // handleChange is a function that updates formData when the input fieds change
     const handleChange = (e) => {
@@ -33,9 +37,14 @@ const enticingcat = {
       const handleSubmit = (e) => {
         // Preventing the default form submission behavior which reloads the
         e.preventDefault();
-        // For now, just loffing the formData to the console
-        // Handle form submission, e.g., send data to server
-        console.log('Form submitted:', formData);
+        // for now just a mock db
+        if (formData.password !== formData.confirmPassword) {
+            alert('Passwords do not match')
+            return;
+        }
+
+        localStorage.setItem(formData.email, JSON.stringify(formData));
+        navigate('/login');
       };
     
       // The return statement defines what the component renders
@@ -50,6 +59,7 @@ const enticingcat = {
                             name='name'
                             value={formData.name}
                             onChange={handleChange}
+                            placeholder='Name'
                             required
                             />
                     </div>
@@ -61,6 +71,7 @@ const enticingcat = {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
+                            placeholder='Email'
                             required
                             />
                     </div>
@@ -72,11 +83,24 @@ const enticingcat = {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
+                            placeholder='Password'
+                            required
+                            />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="confirmPassword">Confirm Password</label>
+                            <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            placeholder="Confirm Password"
                             required
                             />
                     </div>
                 <button type="submit">Sign Up</button>
-                <p className='form-footer'>Already have an account?</p>
+                <p className='form-footer'><Link to="/Login">Already have an account?</Link></p>
             </form>
       );
     }
