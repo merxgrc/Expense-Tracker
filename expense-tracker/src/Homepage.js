@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./Homepage.css"
 
 const comingsoon = {
     imageUrl: 'https://media1.tenor.com/m/Y3Q-JG_JE1YAAAAC/cat-driving-serious.gif',
@@ -16,16 +17,22 @@ function Homepage() {
   }, []);
 
   return (
-    <div>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
       <h2>Hello {user.name}</h2>
       <h3>This page will be coming soon!</h3>
       <img src={comingsoon.imageUrl}></img>
-      <div>
-        <div>
-            <h3>Income:</h3>
+      <div className='finance'>
+        <div className='income'>
+            <div className='innerIncome'>
+                <button type='submit'>+</button>
+                <p>Create new income</p>
+            </div>
         </div>
-        <div>
-            <h3>Expenses:</h3>
+        <div className='expense'>
+            <div className='innerExpense'>
+                <button type='submit'>+</button>
+                <p>Create new expense</p>
+            </div>
         </div>
       </div>
     </div>

@@ -8,9 +8,9 @@ function MyApp() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/homepage" element={<Homepage />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Homepage" element={<Homepage />} />
         <Route path="/" element={<Signup />} />
       </Routes>
     </Router>

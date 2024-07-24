@@ -1,0 +1,21 @@
+#root {
+    justify-content: center;
+    align-items: center;
+}
+.finance {  
+    display: flex;
+    flex-direction: row;  
+}
+
+.innerIncome {
+    display: flex;
+    flex-direction: row;
+    margin-right: 200px;
+    border-style: solid;
+}
+
+.innerExpense {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+}
