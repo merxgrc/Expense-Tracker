@@ -29,3 +29,25 @@
 .expb {
     background-color: red;
 }
+
+.topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    position: relative;
+  }
+  
+  .HPImage {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .list {
+    border-style: solid;
+    border-color: blue;
+    width: 500px;
+    height: 500px;
+  }
